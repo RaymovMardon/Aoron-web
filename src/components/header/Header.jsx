@@ -20,7 +20,7 @@ const Header = () => {
         <a href="#" className="text-gray-800 hover:text-black">
           Catalog
         </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/about" className="text-gray-800 hover:text-black">
           About
         </a>
         <a href="#" className="text-gray-800 hover:text-black">
