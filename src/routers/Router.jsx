@@ -19,13 +19,13 @@ export const Router = createBrowserRouter([
                 path: "/catalog",
                 element: <Catalog />
             },
+             {
+                path: "/about",
+                element: <About />
+            },
             {
                 path: "/cart",
                 element: <Cart />
-            },
-            {
-                path: "/about",
-                element: <About />
             },
             {
                 path: "/contact",
