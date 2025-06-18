@@ -5,12 +5,14 @@ import 'swiper/css';
 import 'swiper/css/thumbs';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
+import { CartStore } from "../../store/CartStore"; 
 
 export default function SuitDetails() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [loading, setLoading] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [selectedSuit, setSelectedSuit] = useState(null);
+    const addToCart=CartStore((state)=>state.addToCart);
     const { id } = useParams();
 
     const decrement = () => quantity > 1 && setQuantity(q => q - 1);
@@ -124,11 +126,27 @@ export default function SuitDetails() {
                         <p className="text-sm text-gray-600">Available sizes: {sizes[0].size}</p>
                     )}
 
-                    <button className="mt-4 bg-gray-800 text-white py-2 rounded-md hover:bg-gray-600 transition duration-300">
+                    <button className="mt-4 bg-gray-800 text-white py-2 rounded-md hover:bg-gray-600 transition duration-300"
+                        onClick={() => {
+                            const cartItem = {
+                                id: selectedSuit.id,
+                                title: selectedSuit.title_en,
+                                price: selectedSuit.price,
+                                image: selectedSuit.images?.[0],  
+                                quantity,
+                            };
+                            addToCart(cartItem);
+                            alert("Item added to cart!");
+                      }}
+                    
+                    >
                         Add to cart
                     </button>
                 </div>
             </div>
+            
         </div>
+
+
     );
 }
