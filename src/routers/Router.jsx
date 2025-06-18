@@ -4,6 +4,7 @@ import Cart from "../pages/cart/Cart";
 import About from "../pages/about/About";
 import Contact from "../pages/contact/Contact";
 import Home from "../components/home/Home";
+import SuitDetails from './../components/suit/SuitDetails';
 
 export const Router = createBrowserRouter([
     {
@@ -25,7 +26,13 @@ export const Router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/suitdetails/:id", // ✅ this enables useParams
+                element: <SuitDetails />
             }
+              
+              
         ]
     }
 ])
