@@ -1,32 +1,33 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 import { FaShoppingBag } from "react-icons/fa";
-
+import logo from "../../../public/logoAoron.png"
 const Header = () => {
   const [lang, setLang] = useState("EN");
 
   return (
     <header className="w-full border-b border-gray-200 px-6 py-4 flex justify-between items-center bg-white">
       {/* Logo */}
+      <Link to="/">
       <div className="flex items-center space-x-2">
-        <img src="/logo.png" alt="Logo" className="h-10" />
-        <span className="tracking-widest text-sm font-light">AORON</span>
+        <img src={logo} alt="Logo" className="h-10" />
       </div>
-
+      </Link>
       {/* Navigation */}
       <nav className="space-x-6 hidden md:flex">
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/" className="text-gray-800 hover:text-black">
           Home
         </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/catalog" className="text-gray-800 hover:text-black">
           Catalog
         </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/about" className="text-gray-800 hover:text-black">
           About
         </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/news" className="text-gray-800 hover:text-black">
           News
         </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        <a href="/contact" className="text-gray-800 hover:text-black">
           Contact
         </a>
       </nav>
