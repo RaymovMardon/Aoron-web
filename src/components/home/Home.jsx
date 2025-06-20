@@ -35,7 +35,7 @@ export default function Home() {
   };
   return (
     <>
-      <section className="relative h-screen flex items-center overflow-hidden mt-3">
+      <section className="mt-19 relative h-screen flex items-center overflow-hidden mt-3">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={style_one}
@@ -197,7 +197,7 @@ export default function Home() {
                   </Link>
                 </>
               ))
-              .sort(() => Math.random() - 0.6)}
+              .sort(() => Math.random() - 0.6).slice(0,4)}
           </div>
         </div>
       </section>
