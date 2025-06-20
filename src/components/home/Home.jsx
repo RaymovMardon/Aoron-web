@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import heroimg from "./img/hero.jpg";
 import { API } from "../../api/API";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import img1 from "./img/img1.jpeg"
 export default function Home() {
   const [response, setResponse] = useState([]);
@@ -21,6 +21,7 @@ export default function Home() {
     backgroundImage: `url(${heroimg})`,
     backgroundPosition: "center 30%",
   };
+
   return (
     <>
       <section className="relative h-screen flex items-center overflow-hidden mt-3">
@@ -63,11 +64,11 @@ export default function Home() {
         <div className="m-auto product-grid gap-8 grid grid-cols-4 container">
           {response.map((item) => (
             <>
-              <div>
+              <Link to={`/suitdetails/${item?.id}`}>
                 <div className="h-[300px]">
                   <img
                     className="h-[300px] w-full object-cover"
-                    src={`https://testaoron.limsa.uz/${item?.images}`}
+                    src={`https://testaoron.limsa.uz/${item?.images[0]}`}
                     alt="image"
                   />
                 </div>
@@ -80,186 +81,186 @@ export default function Home() {
                   </div>
                   <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">{item?.description_en}</p>
                 </div>
-              </div>
+              </Link>
             </>
           ))}
         </div>
         <div className="mt-12 text-center">
-          
-        {<NavLink to={"/catalog"}><div className="border border-gray-300 rounded-md py-3 px-6 btn-secondary group inline-flex items-center">View All Products</div></NavLink>}
+
+          {<NavLink to={"/catalog"}><div className="border border-gray-300 rounded-md py-3 px-6 btn-secondary group inline-flex items-center">View All Products</div></NavLink>}
         </div>
       </section>
       <section className="section-container my-16">
-<div className="mb-10 container m-auto">
-  <div className="flex justify-between items-end my-10">
-    <h2 className="text-xl">New Arrivals</h2>
-    {<NavLink to={"/catalog"}>View All Products</NavLink>}
-  </div>
-  <div className="m-auto product-grid gap-8 grid grid-cols-4 container">
-  <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
-                </div>
+        <div className="mb-10 container m-auto">
+          <div className="flex justify-between items-end my-10">
+            <h2 className="text-xl">New Arrivals</h2>
+            {<NavLink to={"/catalog"}>View All Products</NavLink>}
+          </div>
+          <div className="m-auto product-grid gap-8 grid grid-cols-4 container">
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-  </div>
-</div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section className="py-16 bg-red-200">
         <div className="container m-auto">
-<div className="flex justify-between items-end my-10">
-  <h2 className="text-xl text-red-400">Sale</h2>
-  {<NavLink to={"/catalog"}>View All Products</NavLink>}
-</div>
-<div className="m-auto product-grid gap-8 grid grid-cols-4 container">
-  <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+          <div className="flex justify-between items-end my-10">
+            <h2 className="text-xl text-red-400">Sale</h2>
+            {<NavLink to={"/catalog"}>View All Products</NavLink>}
+          </div>
+          <div className="m-auto product-grid gap-8 grid grid-cols-4 container">
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              <div>
-                <div className="h-[300px]">
-                  <img
-                    className="h-[300px] w-full object-cover"
-                    src={img1}
-                    alt="image"
-                  />
-                </div>
-                <div className="mt-4 space-y-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-sm font-medium">
-Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-medium">$43</span>
-                    </div>
+            </div>
+            <div>
+              <div className="h-[300px]">
+                <img
+                  className="h-[300px] w-full object-cover"
+                  src={img1}
+                  alt="image"
+                />
+              </div>
+              <div className="mt-4 space-y-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-sm font-medium">
+                    Men’s classic 3-piece suit in solid dark grey – understated, elegant, and versat</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm font-medium">$43</span>
                   </div>
-                  <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
                 </div>
+                <p className="text-xs text-gray-600 text-muted-foreground line-clamp-2">A timeless 3-piece men’s suit in solid dark grey — a versatile and essential option for office wear, business meetings, and formal occasions. The neutral tone and structured slim fit make it easy to pair with any shirt or tie, helping you achieve a confident and elegant look</p>
               </div>
-              </div>
-</div>
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
