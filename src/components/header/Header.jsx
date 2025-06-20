@@ -2,6 +2,8 @@ import { useState } from "react";
 import {Link} from "react-router-dom"
 import { FaShoppingBag } from "react-icons/fa";
 import logo from "../../../public/logoAoron.png"
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   const [lang, setLang] = useState("EN");
 
@@ -28,8 +30,21 @@ const Header = () => {
           News
         </a>
         <a href="/contact" className="text-gray-800 hover:text-black">
+        <NavLink to="/" className="text-gray-800 hover:text-black">
+          Home
+        </NavLink>
+        <NavLink to="/catalog" className="text-gray-800 hover:text-black">
+          Catalog
+        </NavLink>
+        <NavLink to="/about" className="text-gray-800 hover:text-black">
+          About
+        </NavLink>
+        <NavLink to="/cart" className="text-gray-800 hover:text-black">
+          Cart
+        </NavLink>
+        <NavLink to="/contact" className="text-gray-800 hover:text-black">
           Contact
-        </a>
+        </NavLink>
       </nav>
 
       {/* Language & Cart */}
