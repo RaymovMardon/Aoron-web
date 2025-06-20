@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaShoppingBag } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [lang, setLang] = useState("EN");
@@ -14,21 +15,21 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className="space-x-6 hidden md:flex">
-        <a href="#" className="text-gray-800 hover:text-black">
+        <NavLink to="/" className="text-gray-800 hover:text-black">
           Home
-        </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        </NavLink>
+        <NavLink to="/catalog" className="text-gray-800 hover:text-black">
           Catalog
-        </a>
-        <a href="/about" className="text-gray-800 hover:text-black">
+        </NavLink>
+        <NavLink to="/about" className="text-gray-800 hover:text-black">
           About
-        </a>
-        <a href="#" className="text-gray-800 hover:text-black">
-          News
-        </a>
-        <a href="#" className="text-gray-800 hover:text-black">
+        </NavLink>
+        <NavLink to="/cart" className="text-gray-800 hover:text-black">
+          Cart
+        </NavLink>
+        <NavLink to="/contact" className="text-gray-800 hover:text-black">
           Contact
-        </a>
+        </NavLink>
       </nav>
 
       {/* Language & Cart */}
