@@ -1,5 +1,7 @@
 import { useState } from "react";
+import {Link} from "react-router-dom"
 import { FaShoppingBag } from "react-icons/fa";
+import logo from "../../../public/logoAoron.png"
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -8,11 +10,11 @@ const Header = () => {
   return (
     <header className="w-full border-b border-gray-200 px-6 py-4 flex justify-between items-center bg-white">
       {/* Logo */}
+      <Link to="/">
       <div className="flex items-center space-x-2">
-        <img src="/logo.png" alt="Logo" className="h-10" />
-        <span className="tracking-widest text-sm font-light">AORON</span>
+        <img src={logo} alt="Logo" className="h-10" />
       </div>
-
+      </Link>
       {/* Navigation */}
       <nav className="space-x-6 hidden md:flex">
         <NavLink to="/" className="text-gray-800 hover:text-black">
