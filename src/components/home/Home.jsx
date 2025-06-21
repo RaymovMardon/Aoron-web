@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import heroimg from "./img/hero.jpg";
 import { API } from "../../api/API";
 import { NavLink, Link } from "react-router-dom";
-
+import { FaArrowRightLong } from "react-icons/fa6";
 export default function Home() {
   const [response, setResponse] = useState([]);
   const [ressale, setRessale] = useState([]);
@@ -30,9 +30,9 @@ export default function Home() {
   const renderProductCard = (item) => (
     <Link to={`/suitdetails/${item?.id}`} key={item?.id}>
       <div>
-        <div className="h-[300px]">
+        <div className="img-animation overflow-hidden md:h-[300px]">
           <img
-            className="h-[300px] w-full object-cover"
+            className="h-[90vw] md:h-[40vw] w-full  object-center lg:h-[300px]"
             src={`https://testaoron.limsa.uz/${item?.images[0]}`}
             alt="product"
           />
@@ -74,7 +74,7 @@ export default function Home() {
                 className="group bg-white text-primary px-6 py-3 rounded-md inline-flex items-center hover:bg-white/90 transition-colors"
                 href="/catalog"
               >
-                Explore Collection
+                Explore Collection <FaArrowRightLong className="text-black ml-2.5 transition-transform duration-200 hover:translate-x-[10px]"/>
               </a>
             </div>
           </div>
@@ -82,15 +82,15 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="section-container m-16">
+      <section className="section-container m-5 sm:m-10 md:m-16">
         <div className="mb-10 text-center">
-          <h2 className="heading-lg mb-4">Featured Products</h2>
+          <h2 className="text-4xl mb-4">Featured Products</h2>
           <p className="text-muted-foreground text-gray-600 max-w-2xl mx-auto">
             Discover our carefully selected collection of premium menswear,
             crafted with the finest materials and attention to detail.
           </p>
         </div>
-        <div className="product-grid gap-8 grid grid-cols-4 container">
+        <div className="product-grid m-auto gap-8 grid container md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {response
             .sort(() => Math.random() - 0.5)
             .slice(0, 28)
@@ -106,13 +106,13 @@ export default function Home() {
       </section>
 
       {/* New Arrivals */}
-      <section className="section-container my-16">
+      <section className="section-container m-10 md:m-16">
         <div className="container mx-auto">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl">New Arrivals</h2>
-            <NavLink to={"/catalog"}>View All Products</NavLink>
+            <NavLink className="text-gray-500 hover:underline cursor-pointer " to={"/catalog"}>View All Products</NavLink>
           </div>
-          <div className="product-grid gap-8 grid grid-cols-4">
+          <div className="product-grid gap-8 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {response
               .sort(() => Math.random() - 0.5)
               .slice(0, 4)
@@ -126,9 +126,9 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl text-red-500">Sale</h2>
-            <NavLink to={"/catalog"}>View All Products</NavLink>
+            <NavLink className="text-gray-500 hover:underline cursor-pointer"  to={"/catalog"}>View All Products</NavLink>
           </div>
-          <div className="product-grid gap-8 grid grid-cols-4">
+          <div className="product-grid gap-8 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {ressale
               .sort(() => Math.random() - 0.5).slice(0, 4)
               .map(renderProductCard)}

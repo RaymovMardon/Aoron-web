@@ -1,12 +1,13 @@
 import React from "react";
 import logo from "../../../public/logoAoron.png";
 import { NavLink, Link } from "react-router-dom";
+import { FaArrowRightLong } from "react-icons/fa6";
 export default function Footer() {
   return (
     <>
       <footer >
         <div className="pt-10 bg-gray-200">
-          <div className="container m-auto grid grid-cols-4 gap-8">
+          <div className="container m-auto px-3 grid grid-cols-1 gap-8 md:grid-cols-4">
             <div className="space-y-4">
             <Link to="/">
               <div className="w-20 mb-4">
@@ -23,10 +24,10 @@ export default function Footer() {
                 Shop
               </h4>
               <ul className="flex mt-1.5 flex-col gap-1.5">
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800">
                   {<NavLink to={"/catalog"}>View All Products</NavLink>}
                 </li>
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800" >
                   {<NavLink to={"/catalog"}>Suits</NavLink>}
                 </li>
               </ul>
@@ -36,16 +37,16 @@ export default function Footer() {
                 Company
               </h4>
               <ul className="flex mt-1.5 flex-col gap-1.5">
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800">
                   {<NavLink to={"/about"}>About</NavLink>}
                 </li>
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800">
                   {<NavLink to={"/contact"}>Contact</NavLink>}
                 </li>
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800">
                   {<NavLink to={"/news"}>Privacy Policy</NavLink>}
                 </li>
-                <li className="text-gray-500">
+                <li className="text-gray-500 hover:text-gray-800">
                   {<NavLink to={"/terms"}>Delivery terms</NavLink>}
                 </li>
               </ul>
@@ -61,16 +62,17 @@ export default function Footer() {
               <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl flex">
                 <input
                   type="email"
-                  className="w-full px-3 py-1 sm:text-base border border-r-0 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary"
+                  
+                  className="w-full bg-white px-3 py-1 sm:text-base border border-r-0 rounded-l-md focus:outline-none focus:ring-1 focus:ring-primary"
                 />
-                <button className="flex py-1 items-center justify-center bg-gray-700 text-primary-foreground px-4  rounded-r-md hover:bg-primary/90 transition-colors">
-                  -
+                <button className="flex py-1 cursor-pointer items-center justify-center bg-gray-700 text-primary-foreground px-4  rounded-r-md hover:bg-primary/90 transition-colors">
+                <FaArrowRightLong className="text-white"/>
                 </button>
               </div>
             </div>
           </div>
           <div className="container m-auto py-4 bg-gray-200">< hr />
-          <p className="text-xs mt-4 text-gray-500 text-muted-foreground">© 2025 AORON. All rights reserved.</p>
+          <p className="text-xs mt-4 text-gray-500 text-muted-foreground :md text-center">© 2025 AORON. All rights reserved.</p>
           </div>
         </div>
       </footer>
