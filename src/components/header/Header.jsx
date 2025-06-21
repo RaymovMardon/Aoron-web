@@ -2,6 +2,8 @@ import { useState } from "react";
 import {Link} from "react-router-dom"
 import { FaShoppingBag } from "react-icons/fa";
 import logo from "../../../public/logoAoron.png"
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   const [lang, setLang] = useState("EN");
 
@@ -16,21 +18,26 @@ const Header = () => {
       </Link>
       {/* Navigation */}
       <nav className="space-x-6 hidden md:flex">
-        <a href="/" className="text-gray-800 text-lg hover:text-gray-500">
+        
+        <NavLink to="/" className="text-gray-800 hover:text-black">
           Home
-        </a>
-        <a href="/catalog" className="text-gray-800 text-lg hover:text-gray-500">
+    
+        </NavLink>
+        <NavLink to="/catalog" className="text-gray-800 hover:text-black">
           Catalog
-        </a>
-        <a href="/about" className="text-gray-800 text-lg hover:text-gray-500">
+       
+        </NavLink>
+        <NavLink to="/about" className="text-gray-800 hover:text-black">
           About
-        </a>
-        <a href="/news" className="text-gray-800 text-lg hover:text-gray-500">
-          News
-        </a>
-        <a href="/contact" className="text-gray-800 text-lg hover:text-gray-500">
+      
+       
+        </NavLink>
+        <NavLink to="/cart" className="text-gray-800 hover:text-black">
+          Cart
+        </NavLink>
+        <NavLink to="/contact" className="text-gray-800 hover:text-black">
           Contact
-        </a>
+        </NavLink>
       </nav>
 
       {/* Language & Cart */}
