@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="section-container m-5 sm:m-10 md:m-16">
+      <section className="section-container my-5 px-4 sm:m-10 md:m-16">
         <div className="mb-10 text-center">
           <h2 className="text-4xl mb-4">Featured Products</h2>
           <p className="text-muted-foreground text-gray-600 max-w-2xl mx-auto">
@@ -120,7 +120,7 @@ export default function Home() {
       </section>
 
       {/* New Arrivals */}
-      <section className="section-container m-10 md:m-16">
+      <section className="section-container my-10 px-4 md:m-16">
         <div className="container mx-auto">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl">New Arrivals</h2>
@@ -152,7 +152,7 @@ export default function Home() {
 
       {/* Sale Section */}
       <section className="py-16 bg-red-200">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl text-red-500">Sale</h2>
             <NavLink
