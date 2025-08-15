@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import heroimg from "./img/hero.jpg";
 import { API } from "../../api/API";
 import { NavLink, Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 export default function Home() {
   const [response, setResponse] = useState([]);
   const [ressale, setRessale] = useState([]);
+  const [err, setErr] = useState(false);
 
   useEffect(() => {
     const getApi = async () => {
@@ -17,6 +18,9 @@ export default function Home() {
         setRessale(sale);
       } catch (error) {
         console.log(error);
+        if (error.code == "ERR_NETWORK") {
+          setErr(!err);
+        }
       }
     };
     getApi();
@@ -74,7 +78,8 @@ export default function Home() {
                 className="group bg-white text-primary px-6 py-3 rounded-md inline-flex items-center hover:bg-white/90 transition-colors"
                 href="/catalog"
               >
-                Explore Collection <FaArrowRightLong className="text-black ml-2.5 transition-transform duration-200 hover:translate-x-[10px]"/>
+                Explore Collection{" "}
+                <FaArrowRightLong className="text-black ml-2.5 transition-transform duration-200 hover:translate-x-[10px]" />
               </a>
             </div>
           </div>
@@ -96,6 +101,15 @@ export default function Home() {
             .slice(0, 28)
             .map(renderProductCard)}
         </div>
+        {err ? (
+          <div>
+            <p className="container mx-auto text-md text-red-500">
+              Error: Check API. Information not found, please refresh the page.
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
         <div className="mt-12 text-center">
           <NavLink to={"/catalog"}>
             <div className="border border-gray-300 rounded-md py-3 px-6 btn-secondary group inline-flex items-center">
@@ -110,9 +124,24 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl">New Arrivals</h2>
-            <NavLink className="text-gray-500 hover:underline cursor-pointer " to={"/catalog"}>View All Products</NavLink>
+            <NavLink
+              className="text-gray-500 hover:underline cursor-pointer "
+              to={"/catalog"}
+            >
+              View All Products
+            </NavLink>
           </div>
           <div className="product-grid gap-8 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {err ? (
+              <div>
+                <p className="text-md text-red-500">
+                  Error: Check API. Information not found, please refresh the
+                  page.
+                </p>
+              </div>
+            ) : (
+              ""
+            )}
             {response
               .sort(() => Math.random() - 0.5)
               .slice(0, 4)
@@ -126,11 +155,27 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex justify-between items-end my-10">
             <h2 className="text-xl text-red-500">Sale</h2>
-            <NavLink className="text-gray-500 hover:underline cursor-pointer"  to={"/catalog"}>View All Products</NavLink>
+            <NavLink
+              className="text-gray-500 hover:underline cursor-pointer"
+              to={"/catalog"}
+            >
+              View All Products
+            </NavLink>
           </div>
           <div className="product-grid gap-8 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {err ? (
+              <div>
+                <p className="text-md text-red-500">
+                  Error: Check API. Information not found, please refresh the
+                  page.
+                </p>
+              </div>
+            ) : (
+              ""
+            )}
             {ressale
-              .sort(() => Math.random() - 0.5).slice(0, 4)
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 4)
               .map(renderProductCard)}
           </div>
         </div>
